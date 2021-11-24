@@ -26,12 +26,12 @@
         <form class="col-md-8" id="form">
             <h3>About You</h3>
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-6">
                     <label for="last-name" class="required-field">Last Name</label>
                     <input class="form-control" type="text" id="last-name" name="lastName" maxlength="40"
                         placeholder="Last Name" required>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-6">
                     <label for="first-name" class="required-field">First Name</label>
                     <input class="form-control" type="text" id="first-name" name="firstName" maxlength="40"
                         placeholder="First Name" required>
@@ -51,7 +51,7 @@
             <div class="form-group">
                 <label for="height">Height</label>
                 <div class="input-group">
-                    <select class="col-md-5 form-control" id="height-ft" aria-placeholder="">
+                    <select class="col-5 form-control" id="height-ft">
                         <option hidden disabled selected value>-</option>
                         <option>0</option>
                         <option>1</option>
@@ -63,8 +63,8 @@
                         <option>7</option>
                         <option>8</option>
                     </select>
-                    <label class="col-md-1 form-control-lg">ft,</label>
-                    <select class="col-md-5 form-control" id="height-in">
+                    <label class="col-1 form-control-lg">ft,</label>
+                    <select class="col-5 form-control" id="height-in">
                         <option hidden disabled selected value>-</option>
                         <option>0</option>
                         <option>1</option>
@@ -79,14 +79,14 @@
                         <option>10</option>
                         <option>11</option>
                     </select>
-                    <label class="col-md-1 form-control-lg">in.</label>
+                    <label class="col-1 form-control-lg">in.</label>
                 </div>
                 <hr class="solid">
 
                 <h3>Contact Info</h3>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input onkeydown="phoneNumberFormatter()" class="form-control" id="phone" name="phone"
+                    <input onkeydown="phoneNumberFormatter()" class="form-control" id="phone" name="phone" maxlength="13" minlength="13"
                         placeholder="(123) 456-7890">
                 </div>
                 <div class="form-group">
@@ -100,11 +100,11 @@
                         placeholder="Apartment, studio, or floor" maxlength="40">
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-6">
                         <label for="city" class="required-field">City</label>
                         <input type="text" class="form-control" id="city" placeholder="City" maxlength="40" required>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-4">
                         <label for="state" class="required-field">State</label>
                         <select id="state" class="form-control" required>
                             <option hidden disabled selected value>State</option>
@@ -160,7 +160,7 @@
                             <option>Wyoming</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-2">
                         <label for="zip" class="required-field">Zip Code</label>
                         <input type="text" class="form-control" id="zip" placeholder="11111" required minlength="5"
                             maxlength="5">
@@ -226,8 +226,8 @@
             </div>
 
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="" id="terms" required>
-                <label class="form-check-label required-field" for="terms">
+                <input class="form-check-input" type="checkbox" value="" id="tos" required>
+                <label class="form-check-label required-field" for="tos">
                     I agree with <a href="#">terms of service</a>
                 </label>
             </div>
