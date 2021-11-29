@@ -73,9 +73,9 @@ function getBudget() {
     const budget = document.getElementById("budget").value
 
     if (budget) {
-        return 'N/A'
-    } else {
         return budget
+    } else {
+        return 'N/A'
     }
 }
 
