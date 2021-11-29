@@ -70,7 +70,7 @@ function getServices() {
 }
 
 function getBudget() {
-    const budget = document.getElementById("budget").value
+    const budget = document.getElementById("monthly-budget").value
 
     if (budget) {
         return budget
