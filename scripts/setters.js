@@ -38,18 +38,24 @@ function setEmail() {
     email.textContent = getEmail()
 }
 
-async function initMap() {
-    const coords = await getCoords()
-
-    const map = await new google.maps.Map(document.getElementById("map"), {
+function createMap(coords) {
+    return new google.maps.Map(document.getElementById("map"), {
         zoom: 11,
         center: coords,
     });
+}
 
-    const marker = await new google.maps.Marker({
+function createMarker(coords, map) {
+    return new google.maps.Marker({
         position: coords,
         map: map,
     });
+}
+
+async function initMap() {
+    const coords = await getCoords()
+    const map = await createMap(coords)
+    const marker = await createMarker(coords, map)
 }
 
 function setResults() {
