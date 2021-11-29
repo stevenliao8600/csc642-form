@@ -93,7 +93,7 @@ function getAddressGeocodeFormat() {
 
     const address = parts.map(
         part => document.getElementById(part).value.trim()
-    ).join(",").replaceAll(" ", "+")
+    ).join(",")
 
     return address
 }
