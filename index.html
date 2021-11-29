@@ -11,15 +11,14 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
     <title>CSC 642 848 Fall 2021 Individual Assignment Steven Liao</title>
-
+    
+    <!-- Google maps -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaZtd4SBv9twPAhi6bna0S-CGAeMbsGWE&libraries=&v=weekly"
+        async defer></script>
+    
     <!--Google ReCaptcha v2 -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-        function onSubmit(token) {
-            const coords = getCoords()
-            console.log(coords)
-        }
-    </script>
 </head>
 
 <body>
@@ -248,13 +247,12 @@
             </div>
             <br>
             <br>
-            <button type="submit" class="btn btn-primary btn-block">Submit2</button>
             <button type="submit" class="btn btn-primary g-recaptcha btn-block"
                 data-sitekey="6LeI71EdAAAAAIYX_XvT-2q-MALJ0kDQ6HK5zYwe" data-callback='onSubmit'>Submit</button>
         </form>
     </div>
 
-    <div id="results-page" class="col-8 offset-2">
+    <div id="results-page d-none" class="col-8 offset-2">
         <div>
             <h3>Name</h3>
             <p id="result-name">none</p>
@@ -301,14 +299,15 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaZtd4SBv9twPAhi6bna0S-CGAeMbsGWE"></script>
+    <!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
 
     <!-- Taken from https://tomduffytech.com/how-to-format-phone-number-in-javascript/ -->
     <script src="./scripts/phoneNumberFormatter.js"></script>
     <script src="./scripts/validation.js"></script>
-    <script src="./scripts/submitHelpers.js"></script>
+    <script src="./scripts/getters.js"></script>
+    <script src="./scripts/setters.js"></script>
+    <script src="./scripts/submit.js"></script>
 </body>
 
 </html>
