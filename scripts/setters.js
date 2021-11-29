@@ -38,9 +38,8 @@ function setEmail() {
     email.textContent = getEmail()
 }
 
-function initMap() {
-    const coords = getCoords()
-    console.log(coords);
+async function initMap() {
+    const coords = await getCoords()
 
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 11,
