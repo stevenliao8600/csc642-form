@@ -22,31 +22,27 @@
 </head>
 
 <body>
-    <div id="form-page">
-        <form class="col-md-8" id="form">
+    <div id="form-page" class="my-5" onsubmit="getCoords()">
+        <form class="col-8 offset-2" id="form">
             <h3>About You</h3>
             <div class="form-row">
                 <div class="form-group col-6">
                     <label for="last-name" class="required-field">Last Name</label>
                     <input class="form-control" type="text" id="last-name" name="lastName" maxlength="40"
-                        placeholder="Last Name" required>
-                    <small class="feedback">
-                        Input your last name
-                    </small>
+                        placeholder="Last Name" required onchange="validateLname()">
+                    <small id="lname-feedback">Input your last name</small>
                 </div>
                 <div class="form-group col-6">
                     <label for="first-name" class="required-field">First Name</label>
                     <input class="form-control" type="text" id="first-name" name="firstName" maxlength="40"
-                        placeholder="First Name" required>
-                        <small class="feedback">
-                            Input your first name
-                        </small>
+                        placeholder="First Name" required onchange="validateFname()">
+                    <small id="fname-feedback">Input your first name</small>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-6">
                     <label for="preferred-title" class="required-field">Preferred Title</label>
-                    <select class="form-control" id="preferred-title" required>
+                    <select class="form-control" id="preferred-title" required onchange="validateTitle()">
                         <option hidden disabled selected value>Choose...</option>
                         <option>none</option>
                         <option>student</option>
@@ -54,6 +50,7 @@
                         <option>staff</option>
                         <option>retired</option>
                     </select>
+                    <small id="title-feedback">Choose your preferred title</small>
                 </div>
                 <div class="form-group col-6">
                     <label for="height">Height</label>
@@ -88,6 +85,7 @@
                         </select>
                         <label class="col-2 form-control">in.</label>
                     </div>
+                    <small>Input your height</small>
                 </div>
             </div>
             <hr class="solid">
@@ -95,159 +93,200 @@
             <h3>Contact Info</h3>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input onkeydown="phoneNumberFormatter()" class="form-control" id="phone" name="phone" maxlength="13"
-                    minlength="13" placeholder="(123) 456-7890">
+                <input onkeydown="phoneNumberFormatter()" class="form-control" id="phone" name="phone" maxlength="14"
+                    minlength="14" placeholder="(123) 456-7890" onchange="validatePhone()">
+                <small id="phone-feedback">Input your phone number</small>
             </div>
             <div class="form-group">
                 <label for="address" class="required-field">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 Main St" maxlength="40" required>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" maxlength="40" required
+                    onchange="validateAddress()">
+                <small id="address-feedback">Input your address</small>
             </div>
             <div class="form-group">
-                <label for="address-line-2">Address Line 2</label>
-                <input type="text" class="form-control" id="address-line-2" placeholder="Apartment, studio, or floor"
-                    maxlength="40">
+                <label for="apartment">Apartment</label>
+                <input type="text" class="form-control" id="apartment" placeholder="Apartment, studio, or floor"
+                    maxlength="40" onchange="validateApartment()">
+                <small id="apartment-feedback">Input your apartment, studio or floor, if applicable</small>
             </div>
             <div class="form-row">
                 <div class="form-group col-6">
                     <label for="city" class="required-field">City</label>
-                    <input type="text" class="form-control" id="city" placeholder="City" maxlength="40" required>
+                    <input type="text" class="form-control" id="city" placeholder="City" maxlength="40" required
+                        onchange="validateCity()">
+                    <small id="city-feedback">Input your city</small>
                 </div>
                 <div class="form-group col-4">
                     <label for="state" class="required-field">State</label>
-                    <select id="state" class="form-control" required>
+                    <select id="state" class="form-control" required onchange="validateState()">
                         <option hidden disabled selected value>State</option>
-                        <option>Alabama</option>
-                        <option>Alaska</option>
-                        <option>Arizona</option>
-                        <option>Arkansas</option>
-                        <option>California</option>
-                        <option>Colorado</option>
-                        <option>Connecticut</option>
-                        <option>Delaware</option>
-                        <option>Florida</option>
-                        <option>Georgia</option>
-                        <option>Hawaii</option>
-                        <option>Idaho</option>
-                        <option>Illinois</option>
-                        <option>Indiana</option>
-                        <option>Iowa</option>
-                        <option>Kansas</option>
-                        <option>Kentucky</option>
-                        <option>Louisiana</option>
-                        <option>Maine</option>
-                        <option>Maryland</option>
-                        <option>Massachusetts</option>
-                        <option>Michigan</option>
-                        <option>Minnesota</option>
-                        <option>Mississippi</option>
-                        <option>Missouri</option>
-                        <option>Montana</option>
-                        <option>Nebraska</option>
-                        <option>Nevada</option>
-                        <option>New Hampshire</option>
-                        <option>New Jersey</option>
-                        <option>New Mexico</option>
-                        <option>New York</option>
-                        <option>North Carolina</option>
-                        <option>North Dakota</option>
-                        <option>Ohio</option>
-                        <option>Oklahoma</option>
-                        <option>Oregon</option>
-                        <option>Pennsylvania</option>
-                        <option>Rhode Island</option>
-                        <option>South Carolina</option>
-                        <option>South Dakota</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Utah</option>
-                        <option>Vermont</option>
-                        <option>Virginia</option>
-                        <option>Washington</option>
-                        <option>West Virginia</option>
-                        <option>Wisconsin</option>
-                        <option>Wyoming</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FM">Federated States Of Micronesia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="GU">Guam</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MH">Marshall Islands</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="MP">Northern Mariana Islands</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PW">Palau</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VI">Virgin Islands</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
                     </select>
+                    <small id="state-feedback">Choose your state</small>
                 </div>
                 <div class="form-group col-2">
                     <label for="zip" class="required-field">Zip Code</label>
                     <input type="text" class="form-control" id="zip" placeholder="11111" required minlength="5"
-                        maxlength="5">
+                        maxlength="5" onchange="validateZip()">
+                    <small id="zip-feedback">Input your zip code</small>
                 </div>
             </div>
+
+            <hr class="solid">
+            <h3>Other</h3>
+            <label class="">Services</label>
+            <fieldset class="form-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="services-email">
+                    <label class="form-check-label" for="services-email">Email</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="services-phone">
+                    <label class="form-check-label" for="services-phone">Phone</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="services-facebook">
+                    <label class="form-check-label" for="services-facebook">Facebook</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="services-tweeter">
+                    <label class="form-check-label" for="services-tweeter">Tweeter</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="services-surface-mail">
+                    <label class="form-check-label" for="services-surface-mail">Surface Mail</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="services-personal-visit">
+                    <label class="form-check-label" for="services-personal-visit">Personal Visit</label>
+                </div>
+                <br>
+                <small>Choose your services</small>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="monthly-budget">Monthly Budget for Services</label>
+                <select class="form-control" id="monthly-budget">
+                    <option hidden disabled selected value>-</option>
+                    <option>Less than $50</option>
+                    <option>Between $50 and $100</option>
+                    <option>Above $100</option>
+                </select>
+                <small>Choose your monthly budget</small>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="required-field">Email</label>
+                <input class="form-control" id="email" name="email" type="email" required onchange="validateEmail()">
+                <small id="email-feedback">Input your email</small>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="tos" required onchange="validateTOS()">
+                <label class="form-check-label required-field" for="tos">I agree with <a href="#">terms of
+                        service</a></label>
+                <small class="" id="tos-feedback"> </small>
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block">Submit2</button>
+            <button type="submit" class="btn btn-primary g-recaptcha btn-block"
+                data-sitekey="6LeI71EdAAAAAIYX_XvT-2q-MALJ0kDQ6HK5zYwe" data-callback='onSubmit'>Submit</button>
+        </form>
     </div>
 
-    <hr class="solid">
-    <h3>Other</h3>
-    <label class="">Services</label>
-    <fieldset class="form-group">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="services-email">
-            <label class="form-check-label" for="services-email">
-                Email
-            </label>
+    <div id="results-page" class="col-8 offset-2">
+        <div>
+            <h3>Name</h3>
+            <p id="result-name">none</p>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="services-phone">
-            <label class="form-check-label" for="services-phone">
-                Phone
-            </label>
+        <div>
+            <h3>Preferred Title</h3>
+            <p id="result-title">none</p>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="services-facebook">
-            <label class="form-check-label" for="services-facebook">
-                Facebook
-            </label>
+        <div>
+            <h3>Height</h3>
+            <p id="result-height">N/A</p>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="services-tweeter">
-            <label class="form-check-label" for="services-tweeter">
-                Tweeter
-            </label>
+        <div>
+            <h3>Phone Number</h3>
+            <p id="result-phone">N/A</p>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="services-surface-mail">
-            <label class="form-check-label" for="services-surface-mail">
-                Surface Mail
-            </label>
+        <div>
+            <h3>Address</h3>
+            <p id="result-address">N/A</p>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="services-personal-visit">
-            <label class="form-check-label" for="services-personal-visit">
-                Personal Visit
-            </label>
+        <div id="map"></div>
+        <div>
+            <h3>Services</h3>
+            <p id="result-services">none</p>
         </div>
-    </fieldset>
-
-    <div class="form-group">
-        <label for="monthly-budget">Monthly Budget for Services</label>
-        <select class="form-control" id="monthly-budget">
-            <option hidden disabled selected value>-</option>
-            <option>Less than $50</option>
-            <option>Between $50 and $100</option>
-            <option>Above $100</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="email" class="required-field">Email</label>
-        <input class="form-control" id="email" name="email" type="email" required>
-    </div>
-
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" value="" id="tos" required>
-        <label class="form-check-label required-field" for="tos">
-            I agree with <a href="#">terms of service</a>
-        </label>
-    </div>
-    <br>
-
-    <button type="submit" class="btn btn-primary g-recaptcha btn-block"
-        data-sitekey="6LeI71EdAAAAAIYX_XvT-2q-MALJ0kDQ6HK5zYwe" data-callback='onSubmit'>Submit</button>
-    </form>
-    </div>
-
-    <div id="results">
-
+        <div>
+            <h3>Monthly Budget</h3>
+            <p id="result-budget">N/A</p>
+        </div>
+        <div>
+            <h3>Email</h3>
+            <p id="result-email">N/A</p>
+        </div>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -261,28 +300,14 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-    <!-- Taken from https://tomduffytech.com/how-to-format-phone-number-in-javascript/ -->
-    <script>
-        function formatPhoneNumber(value) {
-            if (!value) return value;
-            const phoneNumber = value.replace(/[^\d]/g, "");
-            const phoneNumberLength = phoneNumber.length;
-            if (phoneNumberLength < 4) return phoneNumber;
-            if (phoneNumberLength < 7) {
-                return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
-            }
-            return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
-                3,
-                6
-            )}-${phoneNumber.slice(6, 9)}`;
-        }
 
-        function phoneNumberFormatter() {
-            const inputField = document.getElementById("phone");
-            const formattedInputValue = formatPhoneNumber(inputField.value);
-            inputField.value = formattedInputValue;
-        }
-    </script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaZtd4SBv9twPAhi6bna0S-CGAeMbsGWE"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+
+    <!-- Taken from https://tomduffytech.com/how-to-format-phone-number-in-javascript/ -->
+    <script src="./scripts/phoneNumberFormatter.js"></script>
+    <script src="./scripts/validation.js"></script>
+    <script src="./scripts/submitHelpers.js"></script>
 </body>
 
 </html>
