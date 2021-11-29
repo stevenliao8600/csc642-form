@@ -8,10 +8,3 @@ function showResults() {
     results.classList.remove("d-none")
 }
 
-function onSubmit() {
-    if (validateRequired()) {
-        setResults()
-        hideForm()
-        showResults()
-    }
-}

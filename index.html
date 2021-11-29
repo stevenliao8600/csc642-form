@@ -11,12 +11,22 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
     <title>CSC 642 848 Fall 2021 Individual Assignment Steven Liao</title>
-    
+
+    <script>
+        function onSubmit() {
+            if (validateRequired()) {
+                setResults()
+                hideForm()
+                showResults()
+            }
+        }
+    </script>
+
     <!-- Google maps -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDP2RFBrZLFaWwaP-Ea9migd0ZFo3gLsoE&libraries=&v=weekly"
         async defer></script>
-    
+
     <!--Google ReCaptcha v2 -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
