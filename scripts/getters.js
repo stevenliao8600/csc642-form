@@ -7,7 +7,6 @@ function getName() {
 
 function getTitle() {
     const title = document.getElementById("preferred-title").value
-
     return title
 }
 
