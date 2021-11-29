@@ -106,6 +106,5 @@ async function getCoords() {
     };
 
     const res = await axios.request(options)
-    console.log(res)
-    return res.data.results[0].locations[0].latLng
+    return res
 }
