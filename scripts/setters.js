@@ -41,12 +41,12 @@ function setEmail() {
 async function initMap() {
     const coords = await getCoords()
 
-    const map = new google.maps.Map(document.getElementById("map"), {
+    const map = await new google.maps.Map(document.getElementById("map"), {
         zoom: 11,
         center: coords,
     });
 
-    const marker = new google.maps.Marker({
+    const marker = await new google.maps.Marker({
         position: coords,
         map: map,
     });
