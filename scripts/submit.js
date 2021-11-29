@@ -10,7 +10,7 @@ function showResults() {
 
 function onSubmit() {
     if (validateRequired) {
-        displayResults()
+        setResults()
         hideForm()
         showResults()
     }

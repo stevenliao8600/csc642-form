@@ -40,6 +40,7 @@ function setEmail() {
 
 function initMap() {
     const coords = getCoords()
+    console.log(coords);
 
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 11,
@@ -52,7 +53,7 @@ function initMap() {
     });
 }
 
-function displayResults() {
+function setResults() {
     initMap()
     setName()
     setTitle()
