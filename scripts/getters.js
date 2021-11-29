@@ -15,7 +15,7 @@ function getHeight() {
     const inch = document.getElementById("height-in").value
 
     if (ft && inch) {
-        return ft + " \' " + inch + "\""
+        return ft + "\' " + inch + "\""
     }
     return 'N/A'
 }
