@@ -61,9 +61,13 @@ function getServices() {
         } else {
             return ""
         }
-    }).filter(service => service != "")
+    }).filter(service => service != "").join("\n")
 
-    return services.join("\n")
+    if(!services) {
+        return 'None'
+    } else {
+        return services
+    }
 }
 
 function getBudget() {
