@@ -60,12 +60,12 @@ function getServices() {
         } else {
             return ""
         }
-    }).filter(service => service != "").join("\n")
+    }).filter(service => service != "").join(", ")
 
-    if(!services) {
-        return 'None'
-    } else {
+    if(services) {
         return services
+    } else {
+        return 'None'
     }
 }
 
