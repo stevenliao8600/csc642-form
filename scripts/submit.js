@@ -9,7 +9,7 @@ function showResults() {
 }
 
 function onSubmit() {
-    if (validateRequired) {
+    if (validateRequired()) {
         setResults()
         hideForm()
         showResults()
