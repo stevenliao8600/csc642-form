@@ -8,7 +8,7 @@ function showResults() {
     results.classList.remove("d-none")
 }
 
-function onSubmit(token) {
+function onSubmit() {
     if (validateRequired) {
         displayResults()
         hideForm()
