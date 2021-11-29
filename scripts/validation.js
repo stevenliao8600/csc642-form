@@ -258,7 +258,8 @@ function validateRequired() {
         validateCity(),
         validateState(),
         validateZip(),
-        validateEmail()
+        validateEmail(),
+        validateTOS()
     ]
     return !valid.includes(false)
 }

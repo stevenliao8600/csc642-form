@@ -54,10 +54,8 @@ function createMarker(coords, map) {
 
 async function initMap() {
     const coords = await getCoords()
-    console.log(coords)
     const map = await createMap(coords)
     const marker = await createMarker(coords, map)
-    console.log(marker)
 }
 
 function setResults() {

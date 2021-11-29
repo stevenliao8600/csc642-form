@@ -80,7 +80,8 @@ function getBudget() {
 }
 
 function getEmail() {
-    return document.getElementById("email").value
+    const email = document.getElementById("email").value
+    return email
 }
 
 function getAddressGeocodeFormat() {
@@ -94,7 +95,6 @@ function getAddressGeocodeFormat() {
     const address = parts.map(
         part => document.getElementById(part).value.trim()
     ).join(",")
-
     return address
 }
 
