@@ -1,3 +1,4 @@
+// taken/adapted from https://tomduffytech.com/how-to-format-phone-number-in-javascript/
 function formatPhoneNumber(value) {
     if (!value) return value;
     const phoneNumber = value.replace(/[^\d]/g, "");
@@ -12,6 +13,7 @@ function formatPhoneNumber(value) {
     )}-${phoneNumber.slice(6, 9)}`;
 }
 
+// taken/adapted from https://tomduffytech.com/how-to-format-phone-number-in-javascript/
 function phoneNumberFormatter() {
     const inputField = document.getElementById("phone");
     const formattedInputValue = formatPhoneNumber(inputField.value);

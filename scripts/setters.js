@@ -38,6 +38,7 @@ function setEmail() {
     email.textContent = getEmail()
 }
 
+// taken/adapted from https://developers.google.com/maps/documentation/javascript/adding-a-google-map
 function createMap(coords) {
     return new google.maps.Map(document.getElementById("map"), {
         zoom: 11,
@@ -45,6 +46,7 @@ function createMap(coords) {
     });
 }
 
+// taken/adapted from https://developers.google.com/maps/documentation/javascript/adding-a-google-map
 function createMarker(coords, map) {
     return new google.maps.Marker({
         position: coords,
@@ -52,6 +54,7 @@ function createMarker(coords, map) {
     });
 }
 
+// taken/adapted from https://developers.google.com/maps/documentation/javascript/adding-a-google-map
 async function initMap() {
     const coords = await getCoords()
     const map = await createMap(coords)

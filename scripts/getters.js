@@ -98,6 +98,7 @@ function getAddressGeocodeFormat() {
     return address
 }
 
+//taken from https://developer.mapquest.com/documentation/open/geocoding-api/
 async function getCoords() {
     const options = {
         method: 'GET',
