@@ -8,14 +8,11 @@ function showResults() {
     results.classList.remove("d-none")
 }
 
-// taken/adapted from https://stackoverflow.com/questions/59792460/how-to-make-page-scroll-to-top-after-submit-button-is-pressed-in-google-form
+// taken/adapted from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    })
-}
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 
 function onSubmit(token) {
     if (validateRequired()) {
